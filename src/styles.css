@@ -2,14 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom utilities */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #0f172a; }
-::-webkit-scrollbar-thumb { background: #334155; border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: #475569; }
+html { scroll-behavior: smooth; }
 
-.prose h2 { @apply text-2xl font-semibold mt-10 mb-4 tracking-tight; }
-.prose p { @apply leading-relaxed text-slate-300; }
-.prose ul { @apply list-disc pl-6 space-y-2 text-slate-300; }
-.prose ol { @apply list-decimal pl-6 space-y-2 text-slate-300; }
-.prose li { @apply leading-relaxed; }
+body { font-family: theme('fontFamily.sans'); }
+
+.gradient-border { position: relative; }
+.gradient-border::before { content:''; position:absolute; inset:0; padding:1px; border-radius:inherit; background:linear-gradient(90deg,#475569,#facc15,#475569); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; }
+

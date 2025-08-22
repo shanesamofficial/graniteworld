@@ -71,7 +71,7 @@ export default function Contact() {
 					</div>
 					<div>
 						<h2 className="text-lg font-medium mb-3 text-highlight">Materials</h2>
-						<p className="text-slate-400 text-xs leading-relaxed">Granite • Kadappa • Nano White • Marble • Quartzite • Quartz. Custom cutting, drilling, polishing & edge profiling for countertops, flooring, stairs, kallara and meezan boards.</p>
+						<p className="text-slate-400 text-xs leading-relaxed">Granite • Kadappa • Nano White. Custom cutting, drilling, polishing & edge profiling for countertops, flooring, stairs, kallara and meezan boards.</p>
 					</div>
 					<div className="text-xs text-slate-500 leading-relaxed">
 						After you submit, WhatsApp will open with your details pre‑filled. Just press send.
@@ -111,12 +111,12 @@ export default function Contact() {
 								>
 									<option>Kitchen Countertops</option>
 									<option>Bathroom Vanity</option>
-									<option>Outdoor Kitchen</option>
 									<option>Commercial</option>
 									<option>Flooring / Stairs</option>
-									<option>Kallara / Utility</option>
-									<option>Meezan / Board</option>
-									<option>Other</option>
+									<option>Kallara / Monument</option>
+									<option>Meezan</option>
+									<option>Board</option>
+                                    <option>Other</option>
 								</select>
 							</div>
 							<div>
@@ -129,9 +129,6 @@ export default function Contact() {
 									<option>Granite</option>
 									<option>Kadappa</option>
 									<option>Nano White</option>
-									<option>Marble</option>
-									<option>Quartzite</option>
-									<option>Quartz</option>
 									<option>Undecided</option>
 								</select>
 							</div>

@@ -1,28 +1,14 @@
 export default function About() {
-  return (
-    <div className="mx-auto max-w-5xl px-6 py-28">
-      <h1 className="font-display text-4xl font-semibold mb-8">About Us</h1>
-      <div className="prose prose-invert max-w-none">
-        <p>Founded with a passion for craftsmanship, Granite World has grown into a trusted partner for homeowners, designers, and contractors seeking premium stone solutions. We combine advanced fabrication technology with skilled artisans to deliver flawless results.</p>
-  <p>Our approach is consultative—we guide you through slab selection (Granite, Kadappa, Nano White, Marble & more), design, templating, precision cutting, drilling, profiling, polishing and installation with transparent communication and timelines.</p>
-        <h2>What Sets Us Apart</h2>
-        <ul>
-          <li>State-of-the-art CNC fabrication & laser templating</li>
-            <li>Careful on-site installation minimizing disruption</li>
-            <li>Access to a vast inventory of natural & engineered stone</li>
-            <li>Commitment to sustainability and material optimization</li>
-            <li>Warranty-backed workmanship</li>
-        </ul>
-        <h2>Process</h2>
-        <ol>
-          <li>Consultation & Estimate</li>
-          <li>Material Selection & Design</li>
-          <li>Digital Templating</li>
-          <li>Fabrication & Edge Profiling</li>
-          <li>Professional Installation</li>
-        </ol>
-        <p>Whether updating a single vanity or developing a multi-unit project, we deliver precision, beauty, and performance that stands the test of time.</p>
-      </div>
-    </div>
-  );
+	return (
+		<div className="mx-auto max-w-5xl px-6 pt-32 pb-24">
+			<h1 className="font-display text-4xl font-semibold mb-8">About Granite World</h1>
+			<div className="prose prose-invert max-w-none">
+				<p>We combine experienced craftsmanship with modern tooling to deliver consistently accurate stone fabrication. Whether you need a single vanity top or a full villa package we maintain the same attention to detail in measurement, edge finish and polish depth.</p>
+				<p>Materials we process daily include <strong>Granite</strong>, <strong>Kadappa</strong>, <strong>Nano White</strong>, <strong>Marble</strong>, <strong>Quartzite</strong> and engineered <strong>Quartz</strong>. Each piece is inspected for fissures and colour consistency before cutting to minimise waste and avoid surprises on site.</p>
+				<p>Our workflow: templating → optimized cutting → edge profiling & shaping → progressive grit polishing → sealing (where required) → inspection → protected transport → on‑site fitting. This closed loop ensures speed without sacrificing finish.</p>
+				<p>Visit our yard in Kalpetta to view current slab inventory or send measurements on WhatsApp for a fast estimate.</p>
+			</div>
+		</div>
+	);
 }
+

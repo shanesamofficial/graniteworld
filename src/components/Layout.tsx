@@ -1,17 +1,16 @@
-import { Outlet } from 'react-router-dom';
-import Navbar from './Navbar.tsx';
-import Footer from './Footer.tsx';
-import WhatsAppButton from './WhatsAppButton.tsx';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import WhatsAppButton from './WhatsAppButton';
+import { ReactNode } from 'react';
 
-export const Layout = () => {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <Navbar />
-      <main className="flex-1 pt-20">        
-        <Outlet />
-      </main>
-  <Footer />
-  <WhatsAppButton />
-    </div>
-  );
-};
+export default function Layout({ children }: { children: ReactNode }) {
+	return (
+		<div className="flex min-h-screen flex-col">
+			<Navbar />
+			<main className="flex-1">{children}</main>
+			<Footer />
+			<WhatsAppButton />
+		</div>
+	);
+}
+

@@ -1,108 +1,58 @@
-import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const navItems = [
-  { to: '/', label: 'Home' },
-  { to: '/products', label: 'Products' },
-  { to: '/services', label: 'Services' },
-  { to: '/gallery', label: 'Gallery' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
+	{ to: '/', label: 'Home' },
+	{ to: '/products', label: 'Products' },
+	{ to: '/services', label: 'Services' },
+	{ to: '/gallery', label: 'Gallery' },
+	{ to: '/about', label: 'About' },
+	{ to: '/contact', label: 'Contact' }
 ];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState(false);
 
-  // Close on ESC & lock scroll when mobile menu open
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
-    window.addEventListener('keydown', onKey);
-    const body = document.body;
-    const prevOverflow = body.style.overflow;
-    if (open) body.style.overflow = 'hidden'; else body.style.overflow = prevOverflow || '';
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      body.style.overflow = prevOverflow;
-    };
-  }, [open]);
+	useEffect(() => {
+		const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+		window.addEventListener('keydown', onKey);
+		document.body.style.overflow = open ? 'hidden' : '';
+		return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = ''; };
+	}, [open]);
 
-  return (
-  <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur bg-slate-900/70 border-b border-slate-800/50">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="font-display text-xl font-semibold tracking-wide">
-          <span className="text-highlight">Granite</span> World
-        </Link>
-        <nav className="hidden md:flex gap-8 text-sm font-medium">
-          {navItems.map(item => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) => `transition-colors hover:text-highlight ${isActive ? 'text-highlight' : 'text-slate-200'}`}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
-        <button
-          className="md:hidden relative h-10 w-10 inline-flex items-center justify-center rounded-md text-slate-200 hover:bg-slate-800/60 transition"
-          onClick={() => setOpen(o => !o)}
-          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={open}
-        >
-          <span className="sr-only">Menu</span>
-          {[0,1,2].map(i => (
-            <span
-              key={i}
-              className={`absolute block h-0.5 w-6 bg-current transition-all duration-300 ${
-                i===0 ? (open ? 'translate-y-0 rotate-45' : '-translate-y-2') :
-                i===1 ? (open ? 'opacity-0' : 'opacity-100') :
-                i===2 ? (open ? 'translate-y-0 -rotate-45' : 'translate-y-2') : ''
-              }`}
-            />
-          ))}
-        </button>
-      </div>
-      <AnimatePresence>
-        {open && (
-          <>
-            {/* Dim background */}
-            <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-black md:hidden" onClick={() => setOpen(false)}
-            />
-            <motion.nav
-              key="panel"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 260, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-72 max-w-[80%] z-50 md:hidden bg-slate-900 border-l border-slate-800 flex flex-col shadow-xl"
-            >
-              <div className="h-20 flex items-center px-6 border-b border-slate-800/60">
-                <span className="font-display font-semibold tracking-wide text-slate-100"><span className="text-highlight">Granite</span> World</span>
-              </div>
-              <ul className="flex-1 overflow-y-auto py-4 px-3 flex flex-col gap-1">
-                {navItems.map(item => (
-                  <li key={item.to}>
-                    <NavLink
-                      to={item.to}
-                      onClick={() => setOpen(false)}
-                      className={({ isActive }) => `block rounded-md px-4 py-3 text-sm font-medium tracking-wide transition-colors ${isActive ? 'bg-slate-800/70 text-highlight' : 'text-slate-200 hover:bg-slate-800/50'}`}
-                    >
-                      {item.label}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-              <div className="px-5 pb-6 text-[11px] text-slate-500">© {new Date().getFullYear()} Granite World</div>
-            </motion.nav>
-          </>
-        )}
-      </AnimatePresence>
-    </header>
-  );
+	return (
+		<header className="fixed inset-x-0 top-0 z-40 backdrop-blur border-b border-slate-800/60 bg-slate-950/70">
+			<div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+				<Link to="/" className="font-display text-lg font-semibold tracking-wide">Granite <span className="text-highlight">World</span></Link>
+				<nav className="hidden md:flex gap-8 text-sm">
+					{navItems.map(i => (
+						<NavLink key={i.to} to={i.to} className={({isActive}) => `hover:text-highlight transition ${isActive?'text-highlight':'text-slate-300'}`}>{i.label}</NavLink>
+					))}
+				</nav>
+				<button aria-label="Menu" onClick={() => setOpen(true)} className="md:hidden inline-flex items-center justify-center rounded-md border border-slate-700/60 px-3 py-2 text-slate-200">
+					<span className="i">≡</span>
+				</button>
+			</div>
+			{/* Mobile Panel */}
+			{open && (
+				<div className="md:hidden fixed inset-0 z-50">
+					<div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" onClick={() => setOpen(false)} />
+					<div className="absolute right-0 top-0 h-full w-72 bg-slate-900 border-l border-slate-700/60 p-6 flex flex-col gap-6 animate-slide-in">
+						<div className="flex items-center justify-between">
+							<span className="font-display font-semibold">Menu</span>
+							<button onClick={() => setOpen(false)} aria-label="Close" className="rounded p-2 hover:bg-slate-800">✕</button>
+						</div>
+						<div className="flex flex-col gap-4">
+							{navItems.map(i => (
+								<NavLink key={i.to} to={i.to} onClick={() => setOpen(false)} className={({isActive}) => `text-sm font-medium tracking-wide ${isActive?'text-highlight':'text-slate-200'} hover:text-highlight`}>
+									{i.label}
+								</NavLink>
+							))}
+						</div>
+					</div>
+				</div>
+			)}
+		</header>
+	);
 }
+

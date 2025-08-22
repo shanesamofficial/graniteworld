@@ -1,58 +1,68 @@
 # Granite World Website
 
-Modern marketing website for Granite World using React, TypeScript, Vite, and Tailwind CSS.
+Modern marketing site for Granite World built with React + TypeScript + Vite + Tailwind CSS.
 
 ## Features
-- Responsive hero, navigation, and mobile menu
-- Animated sections (Framer Motion)
-- Product categories, gallery grid, about page, and contact form
-- Dark modern stone-inspired aesthetic
-- TypeScript strict mode
+- Responsive layout & mobile slide-in navigation
+- Hero with granite countertop background
+- Services, Products, Gallery, About, Contact (WhatsApp form)
+- Live Google Reviews via Cloudflare Pages Function (fallback sample)
+- Floating WhatsApp quick-contact button
+- SEO LocalBusiness JSON-LD
 
-## Getting Started
-
-### Install Dependencies
+## Scripts
 ```powershell
-npm install
+npm install      # install deps
+npm run dev      # start dev server (Vite)
+npm run build    # production build (dist/)
+npm run preview  # preview dist locally
+npm run pages:preview # build then preview with Cloudflare Pages (requires Wrangler)
 ```
 
-### Run Dev Server
-```powershell
-npm run dev
+## Contact Form -> WhatsApp
+Submitting the form opens WhatsApp with structured message:
+```
+Granite World Inquiry
+--------------------------
+Name: <name>
+Mobile: <number>
+Project Type: <type>
+Material: <material>
+Details: <details>
+--------------------------
+Please respond with next steps.
 ```
 
-Then open the URL shown (default: http://localhost:5173).
+## Google Reviews Function
+File: `functions/reviews.ts` (Cloudflare Pages Functions)
 
-### Build for Production
+Environment Variables (Cloudflare Pages -> Settings -> Environment Variables):
+- `GOOGLE_PLACES_API_KEY` (restrict to Places Details API)
+- `GOOGLE_PLACE_ID`
+
+Client fetches `/reviews` and falls back to static sample if unavailable.
+
+Local test (requires Wrangler):
 ```powershell
 npm run build
+npx wrangler pages dev dist
 ```
 
-### Preview Production Build
-```powershell
-npm run preview
-```
+## Deploy to Cloudflare Pages
+1. Push repo to Git (GitHub).
+2. Cloudflare Dashboard -> Pages -> Create Project -> Connect to repo.
+3. Build command: `npm run build`  Output: `dist`
+4. Add environment variables.
+5. Deploy & verify `/reviews` and site pages.
+6. Add custom domain (optional).
 
-## Next Ideas
-- Add CMS (Sanity/Contentful) for gallery & products
-- Integrate real contact form backend (Formspree / serverless)
-- Add SEO enhancements & social meta tags
-- Add testimonial slider & FAQ
-- Deploy to Netlify, Vercel, or Azure Static Web Apps
+## Customization Ideas
+- Add multiple gallery categories
+- Store form submissions in a KV / D1 or external CRM
+- Add language switch (English / Malayalam)
+- Image optimization (Cloudflare Images / <img loading strategies>)
+- Basic analytics (Cloudflare Web Analytics)
 
-## Live Google Reviews (Implemented)
-The `Reviews` component fetches data from a Netlify serverless function `netlify/functions/reviews.ts`.
+## License
+Proprietary – internal business site for Granite World.
 
-Steps:
-1. Copy `.env.example` to `.env` (optional for local env vars).
-2. In Netlify project settings add environment variables:
-	- `GOOGLE_PLACES_API_KEY` (Server key, restricted to Places Details API)
-	- `GOOGLE_PLACE_ID` (Your business place ID)
-3. Run locally with Netlify dev to proxy the function:
-```powershell
-npm install
-npm run dev:full
-```
-4. Component will fallback to sample reviews if API fails.
-
-Security: Never expose unrestricted API keys client-side. Keep them only in Netlify env vars.
