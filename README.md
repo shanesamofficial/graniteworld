@@ -34,25 +34,25 @@ Please respond with next steps.
 ```
 
 ## Google Reviews Function
-File: `functions/reviews.ts` (Cloudflare Pages Functions)
+File: `api/reviews.js` (Vercel Serverless Functions)
 
-Environment Variables (Cloudflare Pages -> Settings -> Environment Variables):
+Environment Variables (Vercel Project Settings -> Environment Variables):
 - `GOOGLE_PLACES_API_KEY` (restrict to Places Details API)
 - `GOOGLE_PLACE_ID`
 
-Client fetches `/reviews` and falls back to static sample if unavailable.
+Client fetches `/reviews` (rewrites to `/api/reviews`) and falls back to static sample if unavailable.
 
-Local test (requires Wrangler):
+Local test:
 ```powershell
-npm run build
-npx wrangler pages dev dist
+npm run dev
+# Visit http://localhost:5173/reviews to test API
 ```
 
-## Deploy to Cloudflare Pages
+## Deploy to Vercel
 1. Push repo to Git (GitHub).
-2. Cloudflare Dashboard -> Pages -> Create Project -> Connect to repo.
-3. Build command: `npm run build`  Output: `dist`
-4. Add environment variables.
+2. Vercel Dashboard -> New Project -> Import from repo.
+3. Framework: Other, Build command: `npm run build`, Output: `dist`
+4. Add environment variables in Project Settings.
 5. Deploy & verify `/reviews` and site pages.
 6. Add custom domain (optional).
 
