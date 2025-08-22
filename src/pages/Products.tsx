@@ -1,10 +1,12 @@
 export default function Products() {
   const categories = [
-    { name: 'Granite', desc: 'Natural stone slabs with unique veining and durability.' },
-    { name: 'Quartz', desc: 'Engineered stone with consistent patterns and low maintenance.' },
-    { name: 'Marble', desc: 'Elegant natural stone ideal for vanities and specialty applications.' },
-    { name: 'Quartzite', desc: 'Harder-than-granite natural stone with exotic looks.' },
-    { name: 'Sinks & Edges', desc: 'Undermount sinks and custom edge profiles to finish your project.' },
+    { name: 'Granite', desc: 'Wide selection of colours, grain and natural veining. High hardness and heat resistance.' },
+    { name: 'Kadappa', desc: 'Dense, durable limestone suited for utility areas, kallara, meezan platforms and economical flooring.' },
+    { name: 'Nano White', desc: 'Premium engineered white surface offering uniform brightness and easy maintenance.' },
+    { name: 'Quartz', desc: 'Engineered stone for consistent design patterns and low maintenance countertops.' },
+    { name: 'Marble', desc: 'Classic luxury stone—ideal for vanities, wall cladding and décor surfaces.' },
+    { name: 'Quartzite', desc: 'Natural stone combining beauty of marble with strength exceeding granite.' },
+    { name: 'Sinks & Edges', desc: 'Undermount and top-mount sink options plus custom edge profiles: bullnose, bevel, chamfer, ogee.' },
   ];
 
   return (
@@ -18,7 +20,7 @@ export default function Products() {
           </div>
         ))}
       </div>
-      <p className="mt-12 text-slate-400 text-sm max-w-2xl leading-relaxed">Looking for something rare? We maintain relationships with multiple regional slab yards. If you need a specific color or exotic stone, we can source it quickly.</p>
+  <p className="mt-12 text-slate-400 text-sm max-w-2xl leading-relaxed">Need a special size? We provide precision cutting, drilling for sinks / hobs / taps, and professional profiling & polishing so every piece fits perfectly. Looking for something rare? We work with multiple regional suppliers to source exotic stones quickly.</p>
     </div>
   );
 }

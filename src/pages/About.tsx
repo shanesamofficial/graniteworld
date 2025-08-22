@@ -4,7 +4,7 @@ export default function About() {
       <h1 className="font-display text-4xl font-semibold mb-8">About Us</h1>
       <div className="prose prose-invert max-w-none">
         <p>Founded with a passion for craftsmanship, Granite World has grown into a trusted partner for homeowners, designers, and contractors seeking premium stone solutions. We combine advanced fabrication technology with skilled artisans to deliver flawless results.</p>
-        <p>Our approach is consultative—we guide you through slab selection, design, templating, fabrication, and installation with transparent communication and timelines.</p>
+  <p>Our approach is consultative—we guide you through slab selection (Granite, Kadappa, Nano White, Marble & more), design, templating, precision cutting, drilling, profiling, polishing and installation with transparent communication and timelines.</p>
         <h2>What Sets Us Apart</h2>
         <ul>
           <li>State-of-the-art CNC fabrication & laser templating</li>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Reviews from '../components/Reviews.tsx';
 
 export default function Home() {
   return (
@@ -9,11 +10,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 pt-28 pb-32">
           <div className="max-w-2xl">
             <h1 className="font-display text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
-              Premium Granite & Quartz Surfaces
+              Granite, Kadappa & Nano White Solutions
             </h1>
             <p className="mt-6 text-lg text-slate-300 leading-relaxed">
-              Elevate kitchens, bathrooms, and commercial spaces with artisan-crafted countertops, backsplashes, and stone features.
-              Precision fabrication. Expert installation. Timeless durability.
+              Custom cutting, edge moulding, polishing and drilling for countertops, flooring, stairs, kallara, meezan boards & more. Fabricated exactly to your measurements with durable finishing.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link to="/products" className="bg-highlight text-slate-900 font-medium px-6 py-3 rounded-md shadow hover:brightness-110 transition">Explore Products</Link>
@@ -22,7 +22,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="mx-auto max-w-7xl px-6 py-24">
+  <section className="mx-auto max-w-7xl px-6 py-24">
         <h2 className="font-display text-3xl font-semibold mb-10">Why Choose Us</h2>
         <div className="grid md:grid-cols-3 gap-10">
           {[
@@ -41,7 +41,8 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-      </section>
+  </section>
+  <Reviews />
     </div>
   );
 }

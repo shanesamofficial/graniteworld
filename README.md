@@ -39,3 +39,20 @@ npm run preview
 - Add SEO enhancements & social meta tags
 - Add testimonial slider & FAQ
 - Deploy to Netlify, Vercel, or Azure Static Web Apps
+
+## Live Google Reviews (Implemented)
+The `Reviews` component fetches data from a Netlify serverless function `netlify/functions/reviews.ts`.
+
+Steps:
+1. Copy `.env.example` to `.env` (optional for local env vars).
+2. In Netlify project settings add environment variables:
+	- `GOOGLE_PLACES_API_KEY` (Server key, restricted to Places Details API)
+	- `GOOGLE_PLACE_ID` (Your business place ID)
+3. Run locally with Netlify dev to proxy the function:
+```powershell
+npm install
+npm run dev:full
+```
+4. Component will fallback to sample reviews if API fails.
+
+Security: Never expose unrestricted API keys client-side. Keep them only in Netlify env vars.
